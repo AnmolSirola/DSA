@@ -3,6 +3,7 @@ class Node:
         self.value = value
         self.next = None
         
+
 class LinkedList:
     def __init__(self, value):
         new_node = Node(value)
@@ -43,37 +44,49 @@ class LinkedList:
             self.tail = None
         return temp
 
-    def prepend(self, value):
-        new_node = Node(value)
-        if self.length == 0:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            new_node.next = self.head
-            self.head = new_node
-        self.length += 1
-        return True
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+        return temp
+        
+    def set_value(self, index, value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
 
 
-my_linked_list = LinkedList(2)
+my_linked_list = LinkedList(11)
 my_linked_list.append(3)
+my_linked_list.append(23)
+my_linked_list.append(7)
 
-print('Before prepend():')
-print('----------------')
-print('Head:', my_linked_list.head.value)
-print('Tail:', my_linked_list.tail.value)
-print('Length:', my_linked_list.length, '\n')
-print('Linked List:')
+print('LL before set_value():')
+my_linked_list.print_list()
+
+my_linked_list.set_value(1,4)
+
+print('\nLL after set_value():')
 my_linked_list.print_list()
 
 
-my_linked_list.prepend(1)
 
+"""
+    EXPECTED OUTPUT:
+    ----------------
+    LL before set_value():
+    11
+    3
+    23
+    7
 
-print('\n\nAfter prepend():')
-print('---------------')
-print('Head:', my_linked_list.head.value)
-print('Tail:', my_linked_list.tail.value)
-print('Length:', my_linked_list.length, '\n')
-print('Linked List:')
-my_linked_list.print_list()
+    LL after set_value():
+    11
+    4
+    23
+    7
+"""

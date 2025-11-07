@@ -1,8 +1,8 @@
 class Node:
     def __init__(self, value):
         self.value = value
-        self.next = None
-        
+        self.next = None   
+
 class LinkedList:
     def __init__(self, value):
         new_node = Node(value)
@@ -27,30 +27,26 @@ class LinkedList:
         self.length += 1
         return True
 
-    def pop(self):
-        if self.length == 0: # When the length is zero
+    def get(self, index):
+        if index < 0 or index >= self.length:
             return None
         temp = self.head
-        pre = self.head
-        while(temp.next):
-            pre = temp
+        for _ in range(index): # for i in range= use this if it going o be inside a for loop, in our cae we are not using os _i
             temp = temp.next
-        self.tail = pre
-        self.tail.next = None
-        self.length -= 1
-        if self.length == 0: # When we have one item
-            self.head = None
-            self.tail = None
         return temp
 
- 
-my_linked_list = LinkedList(1)
+my_linked_list = LinkedList(0)
+my_linked_list.append(1)
 my_linked_list.append(2)
+my_linked_list.append(3)
+my_linked_list.append(4)
 
-# (2) Items - Returns 2 Node
-print(my_linked_list.pop().value)
-# (1) Item -  Returns 1 Node
-print(my_linked_list.pop().value)
-# (0) Items - Returns None
-print(my_linked_list.pop())
+print(my_linked_list.get(1).value)
 
+
+"""
+    EXPECTED OUTPUT:
+    ----------------
+    3
+
+"""
