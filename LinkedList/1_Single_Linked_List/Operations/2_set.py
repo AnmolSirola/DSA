@@ -28,22 +28,6 @@ class LinkedList:
         self.length += 1
         return True
 
-    def pop(self):
-        if self.length == 0:
-            return None
-        temp = self.head
-        pre = self.head
-        while(temp.next):
-            pre = temp
-            temp = temp.next
-        self.tail = pre
-        self.tail.next = None
-        self.length -= 1
-        if self.length == 0:
-            self.head = None
-            self.tail = None
-        return temp
-
     def get(self, index):
         if index < 0 or index >= self.length:
             return None
@@ -53,7 +37,7 @@ class LinkedList:
         return temp
         
     def set_value(self, index, value):
-        temp = self.get(index)
+        temp = self.get(index) # Checking index using get fn stuff
         if temp:
             temp.value = value
             return True

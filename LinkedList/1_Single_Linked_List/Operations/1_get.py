@@ -43,10 +43,3 @@ my_linked_list.append(4)
 
 print(my_linked_list.get(1).value)
 
-
-"""
-    EXPECTED OUTPUT:
-    ----------------
-    3
-
-"""
