@@ -108,6 +108,7 @@ class LinkedList:
         temp.next = None
         self.length -= 1
         return temp
+    
 
 my_linked_list = LinkedList(1)
 my_linked_list.append(2)

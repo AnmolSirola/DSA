@@ -1,8 +1,7 @@
 class Node:
     def __init__(self, value):
         self.value = value
-        self.next = None
-        
+        self.next = None   
 
 class LinkedList:
     def __init__(self, value):
@@ -32,45 +31,15 @@ class LinkedList:
         if index < 0 or index >= self.length:
             return None
         temp = self.head
-        for _ in range(index):
+        for _ in range(index): # for i in range= use this if it going o be inside a for loop, in our cae we are not using os _i
             temp = temp.next
         return temp
-        
-    def set_value(self, index, value):
-        temp = self.get(index) # Checking index using get fn stuff
-        if temp:
-            temp.value = value
-            return True
-        return False
 
+my_linked_list = LinkedList(0)
+my_linked_list.append(1)
+my_linked_list.append(2)
+my_linked_list.append(3)
+my_linked_list.append(4)
 
-my_linked_list = LinkedList(11)
-my_linked_list.append(3)    
-my_linked_list.append(23)
-my_linked_list.append(7)
+print(my_linked_list.get(1).value)
 
-print('LL before set_value():')
-my_linked_list.print_list()
-
-my_linked_list.set_value(1,4)
-
-print('\nLL after set_value():')
-my_linked_list.print_list()
-
-
-
-"""
-    EXPECTED OUTPUT:
-    ----------------
-    LL before set_value():
-    11
-    3
-    23
-    7
-
-    LL after set_value():
-    11
-    4
-    23
-    7
-"""
